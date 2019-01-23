@@ -6,6 +6,19 @@ module.exports = function(environment) {
     environment,
     rootURL: '/',
     locationType: 'auto',
+    torii: {
+      sessionServiceName: 'session',
+      allowUnsafeRedirect: true,
+
+      providers: {
+        'github-oauth2': {
+          tokenExchangeUri: 'http://localhost:4200/api/token',
+          apiKey: '3fdfc861efaa79837dd7',
+          redirectUri: 'http://localhost:4200/',
+          scope: 'repo user'
+        }
+      }
+    },
     EmberENV: {
       FEATURES: {
         // Here you can enable experimental features on an ember canary build
@@ -22,6 +35,8 @@ module.exports = function(environment) {
       // when it is created
     }
   };
+
+  // ENV.torii.providers['github-oauth2'].tokenExchangeUri = 'http://localhost:4200/api/token';
 
   if (environment === 'development') {
     // ENV.APP.LOG_RESOLVER = true;

@@ -1,5 +1,28 @@
-{{!-- The following component displays Ember's default welcome message. --}}
-{{welcome-page}}
-{{!-- Feel free to remove this! --}}
+<div class="layout-column">
+  {{#unless session.isAuthenticated}}
+  <div class="flex">
+    <h1>Welcome to the Demo App!</h1>
+  </div>
+  {{/unless}}
+  {{outlet}}
+</div>
+{{!--
 
-{{outlet}}
+{{paper-progress-linear value=determinateValue}}
+
+<div class="layout-column">
+  <div class="flex">
+    <h1>Welcome to the Demo App!</h1>
+
+    {{#if session.isAuthenticated}}
+      {{#paper-button noink=true primary=true onClick=(action "logout")}}Log Out{{/paper-button}}
+    {{/if}}
+    <hr>
+  </div>
+
+  <div class="flex">
+    {{outlet}}
+  </div>
+</div>
+
+--}}
