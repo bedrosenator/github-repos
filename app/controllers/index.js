@@ -55,10 +55,12 @@ export default Controller.extend({
       this.set('userId', user.key);
       this.set('selectedUser', user);
     },
-    addUser(user) {
+    addUser(data) {
+      const user = data.trim();
+      this.set('userId', user);
       this.get('users').pushObject({
-        key: user.trim(),
-        value: user.trim(),
+        key: user,
+        value: user,
       })
     },
     logout() {
